@@ -95,8 +95,39 @@
       box-shadow: none;
     }
 
+    /* Social icons */
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .social {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .social:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+    }
+
+    .social svg {
+      width: 20px;
+      height: 20px;
+      fill: #111;
+    }
+
     .footer {
-      margin-top: 36px;
+      margin-top: 24px;
       font-size: 0.75rem;
       color: #777;
     }
@@ -112,14 +143,6 @@
     <p class="subtitle">Official links and community information</p>
 
     <section class="links">
-      <a class="link" href="https://www.facebook.com/" target="_blank">
-        Facebook
-      </a>
-
-      <a class="link" href="https://www.instagram.com/" target="_blank">
-        Instagram
-      </a>
-
       <a class="link disabled">
         Local Flood Guide (Coming Soon)
       </a>
@@ -130,6 +153,30 @@
         Become an SES Volunteer
       </a>
     </section>
+
+    <!-- Social icon buttons -->
+    <div class="socials">
+      <!-- Facebook -->
+      <a class="social" href="https://www.facebook.com/" target="_blank" aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5V12H16l-.4 3h-2.6v7A10 10 0 0 0 22 12"/>
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a class="social" href="https://www.instagram.com/" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.8a4.2 4.2 0 1 0 0 8.4 4.2 4.2 0 0 0 0-8.4zM17.5 6.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+        </svg>
+      </a>
+
+      <!-- Email -->
+      <a class="social" href="mailto:morwell@ses.vic.gov.au" aria-label="Email">
+        <svg viewBox="0 0 24 24">
+          <path d="M2 4h20v16H2V4zm10 7 8-5H4l8 5zm0 2-8-5v10h16V8l-8 5z"/>
+        </svg>
+      </a>
+    </div>
 
     <footer class="footer">
       Victoria State Emergency Service · Morwell Unit
