@@ -129,20 +129,23 @@
     }
 
     /* Proper footer banner */
-  .footer-image {
+.footer-image {
   width: calc(100% + 40px);
-  height: 140px;
-  object-fit: cover;
+  height: auto;
+  max-height: 200px;
+  object-fit: contain;
+  background: #ffffff;
   display: block;
   margin-left: -20px;
   margin-right: -20px;
 }
 
-    @media (min-width: 768px) {
-      .footer-image {
-        height: 190px;
-      }
-    }
+
+  @media (min-width: 768px) {
+  .footer-image {
+    max-height: 220px;
+  }
+}
   </style>
 </head>
 
