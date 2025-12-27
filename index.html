@@ -6,9 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
+    :root {
+      --bg: #f7f6f2;
+      --card-bg: #ffffff;
+      --text-dark: #1f1f1f;
+      --accent: #f57c00;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      background: #f7f6f2;
+      background: var(--bg);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       display: flex;
       justify-content: center;
@@ -24,83 +33,114 @@
     .logo {
       width: 180px;
       max-width: 90%;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     h1 {
       margin: 0;
       font-size: 1.6rem;
+      color: var(--text-dark);
     }
 
     .subtitle {
-      color: #555;
       font-size: 0.95rem;
+      color: #555;
+      margin: 2px 0 0;
     }
 
     .links {
       display: flex;
       flex-direction: column;
       gap: 14px;
-      margin: 26px 0;
+      margin: 26px 0 10px;
     }
 
     .link {
-      background: #ffffff;
-      color: #111;
+      background: var(--card-bg);
+      color: var(--text-dark);
       text-decoration: none;
-      padding: 16px;
+      padding: 16px 18px;
       border-radius: 14px;
+      font-size: 1rem;
       font-weight: 600;
       box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
     }
 
     .link.secondary {
-      border: 2px solid #f57c00;
-      background: white;
+      border: 2px solid var(--accent);
+      background: #fff;
     }
 
     .link.disabled {
       background: #eeeeee;
       color: #777;
       pointer-events: none;
+      box-shadow: none;
     }
 
+    /* Social icons */
     .socials {
       display: flex;
       justify-content: center;
       gap: 16px;
-      margin-bottom: 20px;
+      margin: 28px 0 18px;
     }
 
     .social {
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: white;
+      background: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .social:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.22);
+    }
+
+    .social svg {
+      width: 20px;
+      height: 20px;
+      fill: #111;
     }
 
     .disclaimer {
       font-size: 0.75rem;
       color: #666;
-      margin-bottom: 16px;
+      margin: 0 0 16px;
+      line-height: 1.4;
     }
 
     footer {
       font-size: 0.75rem;
       color: #555;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
+    /* Proper footer banner */
     .footer-image {
       width: 100vw;
-      height: 140px;
+      height: 150px;
       object-fit: cover;
       display: block;
       margin: 0 -20px;
+    }
+
+    @media (min-width: 768px) {
+      .footer-image {
+        height: 190px;
+      }
     }
   </style>
 </head>
@@ -108,12 +148,12 @@
 <body>
   <main class="page">
 
-    <img src="logo.png" alt="SES Morwell" class="logo" />
+    <img src="logo.png" alt="SES Morwell – Paddy Platypus" class="logo" />
 
     <h1>SES Morwell Unit</h1>
     <p class="subtitle">Official Links</p>
 
-    <div class="links">
+    <section class="links">
       <div class="link disabled">Local Flood Guide (Coming Soon)</div>
 
       <a class="link secondary"
@@ -133,12 +173,39 @@
          target="_blank">
         Visit the SES Website
       </a>
-    </div>
+    </section>
 
     <div class="socials">
-      <a class="social" href="https://www.facebook.com/profile.php?id=100069607524695" target="_blank">📘</a>
-      <a class="social" href="https://www.instagram.com/" target="_blank">📸</a>
-      <a class="social" href="mailto:morwell@ses.vic.gov.au">✉️</a>
+
+      <!-- Facebook -->
+      <a class="social"
+         href="https://www.facebook.com/profile.php?id=100069607524695"
+         target="_blank"
+         aria-label="Facebook">
+        <svg viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.7-1.6 1.5V12H16l-.4 3h-2.6v7A10 10 0 0 0 22 12"/>
+        </svg>
+      </a>
+
+      <!-- Instagram -->
+      <a class="social"
+         href="https://www.instagram.com/"
+         target="_blank"
+         aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5.8a4.2 4.2 0 1 0 0 8.4 4.2 4.2 0 0 0 0-8.4zM17.5 6.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+        </svg>
+      </a>
+
+      <!-- Email -->
+      <a class="social"
+         href="mailto:morwell@ses.vic.gov.au"
+         aria-label="Email">
+        <svg viewBox="0 0 24 24">
+          <path d="M2 4h20v16H2V4zm10 7 8-5H4l8 5zm0 2-8-5v10h16V8l-8 5z"/>
+        </svg>
+      </a>
+
     </div>
 
     <p class="disclaimer">
@@ -150,7 +217,9 @@
       Victoria State Emergency Service · Morwell Unit
     </footer>
 
-    <img src="footer.png" alt="VICSES footer" class="footer-image" />
+    <img src="footer.png"
+         alt="Victoria State Emergency Service – Safer Communities Together"
+         class="footer-image" />
 
   </main>
 </body>
